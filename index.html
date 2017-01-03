@@ -31,22 +31,23 @@
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6" ng-controller='ToBuyList as TBList'>
+    <div class="col-md-6" ng-controller='ToBuyList as tbList'>
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat= "item in TBList.items">Buy {{ item.quantity }} {{ item.name }}
-         <button ng-click="TBList.MoveItem2BList($index);" class="btn btn-default">
-           <span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-     <div ng-if="!TBList.items" class="emptyMessage">Everything is bought!</div>
+       <li ng-repeat= "item in tbList.items"> Buy {{ item.quantity }} {{ item.name }}
+         <button ng-click="tbList.MoveItem2BList($index);" class="btn btn-default">
+           <span class="glyphicon glyphicon-ok"></span> Bought</button>
+       </li>
+     <div ng-if="!tbList.items[0]" class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
     <div class="col-md-6" ng-controller='BoughtList as BList'>
      <h2>Already Bought:</h2>
      <ul>
-       <li>Bought 10 cookies</li>
+       <li ng-repeat="item in BList.items">Bought {{ item.quantity }} {{ item.name }}</li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div ng-if="!BList.items[0]" class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>
